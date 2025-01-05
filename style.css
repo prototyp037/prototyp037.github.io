@@ -1,0 +1,257 @@
+/* Dark theme styles */
+
+:root {
+  --color1: #0d1b2a;
+  --color2: #1b263b;
+  --color3: #415a77;
+  --color4: #778da9;
+  --color5: #e0e1dd;
+  --custom-1: #3d9db3;
+}
+
+
+/* Secondary color palette*/
+/*
+000000,14213d,fca311,e5e5e5,ffffff
+*/
+
+/*
+:root {
+  --color1: #000000;
+  --color2: #14213d;
+  --color3: #fca311;
+  --color4: #e5e5e5;
+  --color5: #ffffff;
+  --custom-1: #37CAE7;
+}
+*/
+
+
+/* Define fonts */
+
+
+
+.montserrat {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.allura-regular {
+  font-family: "Allura", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-mono {
+  font-family: "Roboto Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  font-family: "Montserrat", serif;
+  background-color: var(--color1); /* Dark background */
+  color: var(--color5); /* White text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  justify-content: center;
+}
+
+title {
+  font-family: "Allura", cursive;
+  font-size: 50px;
+  color: var(--color3);
+}
+
+h1 {
+  color: var(--color5); /* Accent color for header */
+  margin-bottom: 20px;
+  font: 80px "Allura", cursive;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: var(--color3); /* Dark button background */
+  color: var(--color5); /* Button text color */
+  border: 1px solid var(--color2); /* Subtle border */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for transform */
+}
+
+button:hover {
+  background-color: #005b8d; /* Highlight on hover */
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+#fileInfo {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #8aa3c4; /* Lighter text for file info */
+}
+
+midi-visualizer {
+  margin-top: 100px;
+  width: 70%; /* Fixed width for consistent layout */
+  height: 550px;
+  /*border: 1px solid var(--color1); /* Border using palette */
+  border: none;
+  background-color: var(--color2); /* Visualizer background */
+  /* it's invisible on purpose */
+  color: var(--color5); /* Block color for visualizer */
+}
+
+/* Custom styles for the piano roll visualizer */
+svg rect.note {
+  fill: var(--color5); /* Custom color for active notes */
+}
+
+svg rect.note.active {
+  fill: var(--custom-1); /* Custom color for active notes */
+  stroke: var(--custom-1);
+  stroke-width: 1.5;
+  stroke-opacity: 0.5;
+}
+
+
+
+
+
+midi-player {
+  margin-top: 40px;
+  width: 90%;
+  height: 50px;
+  /* <!-- border: 0px solid #444444; Subtle border for player */
+  background-color: var(--color3); /* Darker player background */
+  position: center;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+/* Control panel (main container) */
+midi-player::part(control-panel) {
+background-color: var(--color3); /* Use theme color */
+border-radius: 10px; /* Rounded corners */
+padding: 10px; /* Add spacing */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+
+/* Play/Pause button */
+midi-player::part(play-button) {
+background-color: var(--color2); /* Button background */
+color: var(--color5); /* Text/Icon color */
+border: 2px solid var(--color3); /* Subtle border */
+border-radius: 50%; /* Circular button */
+width: 40px; /* Adjust size */
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+midi-player::part(play-button):hover {
+background-color: var(--color3); /* Lighter hover effect */
+transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Seek bar (progress bar) */
+midi-player::part(seek-bar) {
+height: 6px;
+background-color: var(--color5); /* Background of the bar */
+border-radius: 3px;
+appearance: none; /* Remove default browser styling */
+}
+
+midi-player::part(seek-bar-filled) {
+background-color: var(--color3); /* Filled part */
+height: 6px;
+border-radius: 3px;
+}
+
+/* Time display (e.g., "0:00 / 3:00") */
+midi-player::part(time) {
+color: var(--color5); /* Match text color to theme */
+font-size: 14px;
+font-family: Arial, sans-serif;
+margin-left: 10px; /* Add spacing */
+}
+
+/* Loading overlay */
+midi-player::part(loading-overlay) {
+background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark overlay */
+color: var(--color5); /* Text color */
+font-size: 14px;
+text-align: center;
+padding: 10px;
+border-radius: 10px;
+}
+
+.player-container {
+display: flex;
+align-items: center; /* Align items vertically */
+justify-content: space-between; /* Space out the buttons and the player */
+width: 100%; /* Make the container take full width */
+margin-top: 20px; /* Add some space above the container */
+}
+
+.player-container button {
+background-color: var(--color3); /* Button background */
+color: var(--color5); /* Button text */
+border: 1px solid var(--color2); /* Subtle border */
+padding: 10px 20px; /* Button padding */
+font-size: 16px; /* Font size */
+cursor: pointer; /* Pointer cursor */
+border-radius: 5px; /* Rounded corners */
+transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.player-container button:hover {
+background-color: #005b8d; /* Highlight on hover */
+}
+
+#backtrack {
+margin-right: 10px; /* Space between button and MIDI player */
+}
+
+#skip {
+margin-left: 10px; /* Space between button and MIDI player */
+}
+
+/* Scrollbar styling for modern browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
