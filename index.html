@@ -16,6 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+IS:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
+  
+
   <!-- CSS quickfix -->
   <style>
     html, body {
@@ -60,7 +62,7 @@
     // Function to fetch all MIDI files sorted by commit date descending
     async function fetchMidiFiles() {
       try {
-        const repo = 'prototyp037/Meloson_Production';
+        const repo = 'prototyp037/prototyp037.github.io';
         const branch = 'main';
         const directory = 'production_midis';
 
@@ -145,7 +147,7 @@
       }
 
       const file = midiFilesList[index];
-      const repo = 'prototyp037/Meloson_Production';
+      const repo = 'prototyp037/prototyp037.github.io';
       const branch = 'main';
       const latestMidiUrl = `https://raw.githubusercontent.com/${repo}/${branch}/${file.path}`;
 
